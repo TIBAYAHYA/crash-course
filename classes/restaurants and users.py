@@ -1,5 +1,5 @@
 #class related testing, this is a simple code that deals with already written 
-class restaurant:
+class Restaurant:
     def __init__(self,restaurant_name,cuisine_type): #restaurant's attributes
         #attribues assigning
         self.restaurant_name =restaurant_name
@@ -13,17 +13,16 @@ class restaurant:
     def open_restaurant(self):
         print(f"The restaurant {self.restaurant_name}")
 #instance creation
-my_restaurant = restaurant("marhaba","sea food")
-his_restaurant = restaurant("makaram","chiken based")
-their_restaurant = restaurant("welcome","fast food")
+my_restaurant = Restaurant("marhaba","sea food")
+his_restaurant = Restaurant("makaram","chiken based")
+their_restaurant = Restaurant("welcome","fast food")
 
 # instance calling
-restaurant.describe(my_restaurant)
-restaurant.describe(his_restaurant)
-restaurant.describe(their_restaurant)
+my_restaurant.describe()
+his_restaurant.describe()
+their_restaurant.describe()
 
-
-class user:
+class User:
     def __init__(self,first_name,last_name,age,adress,favorite_food): #users attributes
         #attributes assigning
         self.first_name = first_name
@@ -34,10 +33,14 @@ class user:
     # user method
     def describe(self):
         print(f"{self.first_name} {self.last_name} is {self.age} years old, his adress is {self.adress},and his favorite food is {self.favorite_food}")
+    def greet(self):
+        print(f"Greetings, {self.first_name} {self.last_name} , welcome to the coding enviroment!")
 #users instance creating
-mike = user("mike","tyson",30,"earth","your meat")
-jackson = user("jack","son",50,"pluto","his own meat")
+mike = User("mike","tyson",30,"earth","your meat")
+jackson = User("jack","son",50,"pluto","his own meat")
 
 # users instance calling
-user.describe(mike)
-user.describe(jackson)
+mike.describe()
+jackson.describe()
+mike.greet()
+jackson.greet()

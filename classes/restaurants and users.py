@@ -4,6 +4,7 @@ class Restaurant:
         #attribues assigning
         self.restaurant_name =restaurant_name
         self.cuisine_type = cuisine_type
+        self.number_served = 0
  
  #restaurant's methods
     def describe(self):
@@ -12,6 +13,17 @@ class Restaurant:
         
     def open_restaurant(self):
         print(f"The restaurant {self.restaurant_name}")
+
+    #served clients related functions
+    def read_served_clients(self):
+        print(f"A total of {self.number_served} clients have been served!")
+    def change_served_clients(self,to_change_value):
+        self.number_served = to_change_value
+    def increment_served_client(self,addition):
+        self.number_served += addition
+
+
+
 #instance creation
 my_restaurant = Restaurant("marhaba","sea food")
 his_restaurant = Restaurant("makaram","chiken based")
@@ -35,11 +47,24 @@ class User:
         print(f"{self.first_name} {self.last_name} is {self.age} years old, his adress is {self.adress},and his favorite food is {self.favorite_food}")
     def greet(self):
         print(f"Greetings, {self.first_name} {self.last_name} , welcome to the coding enviroment!")
+
+
+
+
+
+
 #users instance creating
 mike = User("mike","tyson",30,"earth","your meat")
 jackson = User("jack","son",50,"pluto","his own meat")
 
+
+        
+
+
 # users instance calling
+    
+
+
 mike.describe()
 jackson.describe()
 mike.greet()

@@ -66,21 +66,49 @@ class User:
         self.logging_attempts = 0
     
 
+class IceCreamStand(Restaurant):
+    def __init__(self, restaurant_name, cuisine_type):
+        super().__init__(restaurant_name, cuisine_type)
+        self.flavors = ["chocolate","vanilla","caramel","goodFlavor"]
+    def display_flavors(self):
+        print(f"The current availalble flavors are: {", ".join(self.flavors)}")
+ 
+    
+
+class Privileges():
+    def __init__(self,privileges):
+        self.privileges = privileges
+    def display_privileges(self):
+        print(f"The set of privilages are: {", ".join(self.privileges)}")
 
 
+class Admin(User):
+    def __init__(self, first_name, last_name, age, adress, favorite_food):
+        super().__init__(first_name, last_name, age, adress, favorite_food)
+        #the attribute below stores a list of privilages an admin is granted!
+        self.privileges = Privileges(["can add post","can delete post","can ban user","can throw up","can sneeze"])
+    def display_privileges(self):
+        print(f"The set of privilages an administrator is granted are : {", ".join(self.privileges)}")
+
+admin = Admin("jack","tyson",35,"earth","same as his brother")
 
 #users instance creating
 mike = User("mike","tyson",30,"earth","your meat")
 jackson = User("jack","son",50,"pluto","his own meat")
 
-
+my_iceCream = IceCreamStand("stand","glacial")
+my_iceCream.display_flavors()
         
+
+    
+
+admin.privileges.display_privileges()
+
+
 
 
 # users instance calling
     
-
-
 mike.describe()
 jackson.describe()
 mike.greet()

@@ -30,7 +30,7 @@ class Car:
  #making a child class known as electric car, based off the parent class known as car
 
 class Battery:
-    def __init__(self,battery_size=100):
+    def __init__(self,battery_size):
         self.battery_size = battery_size
     def describe_battery(self):
         #describes the battery size
@@ -41,6 +41,9 @@ class Battery:
         elif self.battery_size == 150:
             range = 400
         print(f"This car has a range of {range}")
+    def upgrade_batter(self):
+        if self.battery_size < 100:
+            self.battery_size = 100
 
 class ElectricCar(Car):
     #initializing attributes of parent class
@@ -48,7 +51,7 @@ class ElectricCar(Car):
         super().__init__(make, model, year)
         #initializing attributes 
         self.battery_capacity = 9000
-        self.battery = Battery()
+        self.battery = Battery(90)
     def describe_battery(self):
         #this function simply prints the battery capacity
         print(f"Th capacity of your electric car is {self.battery_capacity}")
@@ -59,4 +62,4 @@ class ElectricCar(Car):
 my_tesla = ElectricCar("tesla","model s",2019)
 print(my_tesla.namely_descriptive())
 my_tesla.battery.describe_battery()
-my_tesla.battery.ev_range()
+my_tesla.battery.ev_range(100)

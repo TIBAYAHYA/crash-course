@@ -34,6 +34,8 @@ my_restaurant = Restaurant("marhaba","sea food")
 his_restaurant = Restaurant("makaram","chiken based")
 their_restaurant = Restaurant("welcome","fast food")
 
+
+
 # instance calling
 my_restaurant.describe()
 his_restaurant.describe()
@@ -78,8 +80,7 @@ class IceCreamStand(Restaurant):
 class Privileges():
     def __init__(self,privileges):
         self.privileges = privileges
-    def display_privileges(self):
-        print(f"The set of privilages are: {", ".join(self.privileges)}")
+
 
 
 class Admin(User):

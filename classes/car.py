@@ -1,4 +1,4 @@
-#this class can be used to represent a class
+#this class can be used to represent a car
 class Car:
     """A simple attempt to represent a car."""
     def __init__(self, make, model, year):
@@ -30,3 +30,4 @@ class Car:
     def increment_odometer(self, miles):
         """Add the given amount to the odometer reading."""
         self.odometer_reading += miles
+

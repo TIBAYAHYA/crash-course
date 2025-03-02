@@ -8,8 +8,8 @@ class Restaurant:
  
  #restaurant's methods
     def describe(self):
-        print(f"The restaurant name is {self.restaurant_name}")
-        print(f"The cuisine type is :{self.cuisine_type}\n")
+        print(f"The restaurant name is: {self.restaurant_name}")
+        print(f"The cuisine type is: {self.cuisine_type}\n")
         
     def open_restaurant(self):
         print(f"The restaurant {self.restaurant_name}")
@@ -30,16 +30,8 @@ class Restaurant:
 
 
 #instance creation
-my_restaurant = Restaurant("marhaba","sea food")
-his_restaurant = Restaurant("makaram","chiken based")
-their_restaurant = Restaurant("welcome","fast food")
 
 
-
-# instance calling
-my_restaurant.describe()
-his_restaurant.describe()
-their_restaurant.describe()
 
 class User:
     def __init__(self,first_name,last_name,age,adress,favorite_food): #users attributes
@@ -79,7 +71,13 @@ class IceCreamStand(Restaurant):
 
 class Privileges():
     def __init__(self,privileges):
-        self.privileges = privileges
+        self.privileges = privileges[:-2]
+    
+        
+
+
+
+
 
 
 
@@ -87,44 +85,17 @@ class Admin(User):
     def __init__(self, first_name, last_name, age, adress, favorite_food):
         super().__init__(first_name, last_name, age, adress, favorite_food)
         #the attribute below stores a list of privilages an admin is granted!
-        self.privileges = Privileges(["can add post","can delete post","can ban user","can throw up","can sneeze"])
+        self.privileges = Privileges(["can add post","can delete post","can ban user","can throw up","can sneeze"]) #sending the privileges list to privileges class
     def display_privileges(self):
-        print(f"The set of privilages an administrator is granted are : {", ".join(self.privileges)}")
+        print(f"The set of privilages an administrator is granted are : {", ".join(self.privileges.privileges)}") #accessing the self.previleges output, 
+                                                                                                                #for some reason had to add a .privileges
 
-admin = Admin("jack","tyson",35,"earth","same as his brother")
 
-#users instance creating
-mike = User("mike","tyson",30,"earth","your meat")
-jackson = User("jack","son",50,"pluto","his own meat")
 
-my_iceCream = IceCreamStand("stand","glacial")
-my_iceCream.display_flavors()
         
 
     
 
-admin.privileges.display_privileges()
 
 
 
-
-# users instance calling
-    
-mike.describe()
-jackson.describe()
-mike.greet()
-jackson.greet()
-
-my_restaurant.change_served_clients(3)
-my_restaurant.read_served_clients()
-my_restaurant.increment_served_client(50)
-my_restaurant.increment_served_client(30)
-my_restaurant.read_served_clients()
-
-
-mike.increment_loggings()
-mike.increment_loggings()
-mike.increment_loggings()
-mike.read_logging_attempts()
-mike.loggings_reset()
-mike.read_logging_attempts()

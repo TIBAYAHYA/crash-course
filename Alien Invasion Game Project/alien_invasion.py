@@ -31,13 +31,26 @@ class AlienInvasion:
         for event in pygame.event.get():
                 if event.type == pygame.QUIT: # It is seemingle that we are gonna have multiple quitting event? and so we iterate checking all of them
                     sys.exit()
-    
+                #key down case
+                elif event.type == pygame.KEYDOWN: # conditioning for a key stroke event
+                    if event.key == pygame.K_RIGHT: # conditioning for the key stroke being right arrow key
+                        self.ship.moving_right =  True 
+                    elif event.key == pygame.K_LEFT: # key stroke being left arrow
+                        self.ship.moving_left = True
+
+                #key up case
+                elif event.type == pygame.KEYUP: #case of key up
+                    if event.key == pygame.K_RIGHT: # the key up being right arrow
+                          self.ship.moving_right = False
+                    elif event.key == pygame.K_LEFT: # the key up being left arrow
+                         self.ship.moving_left = False
     
     
 
     def _upldate_screen(self):
             self.screen.fill(self.bg_colors) #this is the actual function that changes
             self.ship.blitme() #run the bltime function from ship class, which just draws the ship image in ship rectangular
+            self.ship.update()
             pygame.display.flip() # this function updates the frame of the game window with made changes
     
          

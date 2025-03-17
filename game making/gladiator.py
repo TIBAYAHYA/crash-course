@@ -12,4 +12,4 @@ class Gladiator:
         self.gladiator_rect.center = self.screen_rect.center #reposition glad rect to center of window
     
     def blitme(self):
-        self.screen.blit(self.gladiator_image,self.gladiator_rect) # drawing the gladiator image in rectangular location
+        self.screen.blit(self.gladiator_image,self.gladiator_rect) #draw the image in the x location of screen rectangular

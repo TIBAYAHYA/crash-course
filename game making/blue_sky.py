@@ -6,10 +6,10 @@ from gladiator import Gladiator
 class BlueSky:
     def __init__(self):
         pygame.init()
-        self.settings = Settings()
+        self.settings = Settings() #initialize the game settings from Settings class
         self.screen = pygame.display.set_mode((self.settings.screen_width,self.settings.screen_height))
-        pygame.display.set_caption("Blue Sky")
-        self.bg_colors = self.settings.bg_color
+        pygame.display.set_caption("Blue Sky") # the name of the game window
+        self.bg_colors = self.settings.bg_color #settings color
         self.gladiator = Gladiator(self)
     def run_game(self):
         while True:
@@ -27,6 +27,7 @@ class BlueSky:
                 sys.exit()
 
     def _update_screen(self):
+        #a split function updates screen color and draws gladiatorin his corresponding rectangular as well as display everything
         self.screen.fill(self.bg_colors)
         self.gladiator.blitme()
         pygame.display.flip()

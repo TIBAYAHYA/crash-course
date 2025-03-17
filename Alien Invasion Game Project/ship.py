@@ -13,6 +13,13 @@ class Ship:
 
         #
         self.rect.midbottom = self.screen_rect.midbottom #setting ship rectangular coordinates to midbottom
+        self.moving_right = False # a function that checks If the ship is moving right
+        self.moving_left =  False
+    def update(self):
+        if self.moving_right:
+            self.rect.x += 1  # move ship by 1 pixel to the right
+        if self.moving_left:
+            self.rect.x -= 1  # move ship by 1 pixel to the left
 
     def blitme(self):
         self.screen.blit(self.image,self.rect) # drawing the ship image in the rectangular coordinates

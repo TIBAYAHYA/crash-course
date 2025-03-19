@@ -18,6 +18,10 @@ class Ship:
         
         #
         self.rect.midbottom = self.screen_rect.midbottom #setting ship rectangular coordinates to midbottom
+        #took so long to understand, but self.rect.midbottom is not a unique attribue, rather It represents
+        # the button of the self.rect object, and It is bound to It
+        
+        
         self.moving_right = False # a function that checks If the ship is moving right
         self.moving_left =  False 
     def update(self):

@@ -16,7 +16,7 @@ class AlienInvasion:
         self.settings.screen_height = self.screen.get_rect().height #assign settings class height to full screen's
         pygame.display.set_caption("Alien Invasion")
 #(255,255,255) equals to the colors (reg,green,blue)
-        self.bg_colors = (self.settings.bg_color) # setting a color object, later to be used as the background color of our game
+        self.bg_colors = self.settings.bg_color # setting a color object, later to be used as the background color of our game
         self.ship = Ship(self) # we set a Ship class variable, with It having acess
         # Ship(self) so the target class can access our function(as well as not crash out)
     def run_game(self):

@@ -27,7 +27,7 @@ class AlienInvasion:
             # a loop that constantly checks for user quitting input, I guess pygame doesnt have a built in one
             self._upldate_screen()
 
-    
+
     
     
     def _check_events(self):

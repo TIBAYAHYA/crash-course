@@ -5,7 +5,7 @@ class Rocket:
         self.screen = mr_game.screen
         self.settings = mr_game.settings
         self.screen_rect = self.screen.get_rect()
-        self.rocket_image = pygame.image.load(r"C:\Users\maroc\OneDrive\Desktop\graphics\space_ship1.png")
+        self.rocket_image = pygame.image.load(r"/home/yahya/Desktop/programming/some images/space-ship.png")
         self.rocket_rect = self.rocket_image.get_rect()
         self.rocket_rect.center = self.screen_rect.center
         #checkers for game moving direction

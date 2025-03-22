@@ -12,7 +12,7 @@ class Ship:
         
         
         
-        self.image = pygame.image.load(r"C:\Users\maroc\OneDrive\Desktop\graphics\space_ship1.png") #storing the ship image
+        self.image = pygame.image.load(r"/home/yahya/Desktop/programming/some images/space-ship.png") #storing the ship image
         self.rect = self.image.get_rect()# we object the ship image above as rectangle
         
         

@@ -14,15 +14,15 @@ class KeyTracker:
 
 
 
-
+#since update is called before blitme on our main loop, we can afford to not define self.text_surface and self.text_rect at our previous function
 
 
 
 
     def update(self):
-        self.key_pressed = 
-        self.text_surface = self.settings.font.render(self.key_pressed, True, (255, 255, 255))  # White color
-        self.text_rect = self.text_surface.get_rect(center=(self.screen.get_width() // 2, self.screen.get_height() // 2))
+        self.text_surface = self.settings.font.render(self.key_pressed, True, (255, 255, 255)) #this is the text surface
+        self.text_rect = self.text_surface.get_rect(center=(self.screen.get_width() // 2, self.screen.get_height() // 2)) #this is the text rectangle
+
 
 
 

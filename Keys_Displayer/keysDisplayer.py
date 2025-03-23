@@ -32,6 +32,7 @@ class KeyDisplayer:
                 self.key_tracker.key_down = True
                 self.key_pressed = event.key #we obtain the key object
                 self.key_tracker.key_pressed = self.settings.key_name_map.get(self.key_pressed, f"Unknown key: {self.key_pressed}")
+                
                 #the attribute above is set to equal humanly readable key names
                 
 
@@ -48,8 +49,10 @@ class KeyDisplayer:
 
     def _update_screen(self):
         self.screen.fill(self.bg_color)
-        self.key_tracker.blitme()
+
         self.key_tracker.update()
+        self.key_tracker.blitme()
+
 
         pygame.display.flip()
         

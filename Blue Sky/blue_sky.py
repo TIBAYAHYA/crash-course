@@ -23,7 +23,7 @@ class BlueSky:
     def _check_events(self):
         #this checks for quit event
         for event in pygame.event.get():
-            if event ==quit:
+            if event.type == pygame.QUIT or event.type == pygame.KEYUP and event.key == pygame.K_q:
                 sys.exit()
 
     def _update_screen(self):

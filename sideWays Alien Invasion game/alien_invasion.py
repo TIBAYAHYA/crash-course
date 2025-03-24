@@ -2,7 +2,6 @@ import sys,pygame
 from settings import Settings
 from ship import Ship
 from bullets import Bullets
-from alien import Alien
 #a class to manage basic stuff like game launch
 class AlienInvasion:
 
@@ -17,26 +16,12 @@ class AlienInvasion:
         self.settings.screen_height = self.screen.get_rect().height #assign settings class height to full screen's
 
         self.bullets = pygame.sprite.Group() #group of bullets to get updated
-        self.aliens  = pygame.sprite.Group()
-        self._create_fleet()
 
         pygame.display.set_caption("Alien Invasion")
 #(255,255,255) equals to the colors (reg,green,blue)
         self.bg_colors = self.settings.bg_color # setting a color object, later to be used as the background color of our game
         self.ship = Ship(self) # we set a Ship class variable, with It having acess
         # Ship(self) so the target class can access our function(as well as not crash out)
-    
-        #this function basically creates an alien and adds It to the sprite group
-    def _create_fleet(self):
-        alien = Alien(self)
-        self.aliens.add(alien)#add the created alien to sprite group
-    
-    
-    
-    
-    
-    
-    
     def run_game(self):
         #a function that contains main methods that the game runs on
         
@@ -71,10 +56,10 @@ class AlienInvasion:
 
 
     def _check_keydown_event(self,event):
-        if event.key == pygame.K_RIGHT: # conditioning for the key stroke being right arrow key
-            self.ship.moving_right =  True 
-        elif event.key == pygame.K_LEFT: # key stroke being left arrow
-            self.ship.moving_left = True
+        if event.key == pygame.K_UP: # conditioning for the key stroke being right arrow key
+            self.ship.moving_up =  True 
+        elif event.key == pygame.K_DOWN: # key stroke being left arrow
+            self.ship.moving_down = True
             #game exits if q is pressed
         elif event.key == pygame.K_q:
              sys.exit()
@@ -88,10 +73,10 @@ class AlienInvasion:
 
 
     def _check_keyup_event(self,event):
-        if event.key == pygame.K_RIGHT: # the key up being right arrow
-                self.ship.moving_right = False
-        elif event.key == pygame.K_LEFT: # the key up being left arrow
-                self.ship.moving_left = False 
+        if event.key == pygame.K_UP: # the key up being right arrow
+                self.ship.moving_up = False
+        elif event.key == pygame.K_DOWN: # the key up being left arrow
+                self.ship.moving_down = False 
     
     def _fire_bullet(self):
         if len(self.bullets) < self.settings.bulelts_limit: #if the number of bullets is less than the limit of bullets
@@ -103,7 +88,7 @@ class AlienInvasion:
             self.bullets.update()  # this updates every single bullet in the group bullets     
             # Get rid of bullets that have disappeared.
             for bullet in self.bullets.copy():
-                if bullet.bullet_rect.bottom <= 0:
+                if bullet.bullet_rect.right >= 1460:
                     self.bullets.remove(bullet) 
 
 
@@ -114,7 +99,6 @@ class AlienInvasion:
             
             for bullet in self.bullets.sprites(): #iterate  over every bullet in the sprite group
                 bullet.draw_bullet() #call the drawing function in bullets class
-            self.aliens.draw(self.screen)
             pygame.display.flip() # this function updates the frame of the game window with made changes
          
 if __name__ == "__main__":

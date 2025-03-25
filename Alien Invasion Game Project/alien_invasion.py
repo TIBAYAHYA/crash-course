@@ -15,6 +15,7 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode((0,0),pygame.FULLSCREEN) # this variable contains the screen object, we also set the initial screen resolution
         self.settings.screen_width  = self.screen.get_rect().width  #assign settings class width to full screen's
         self.settings.screen_height = self.screen.get_rect().height #assign settings class height to full screen's
+        
 
         self.bullets = pygame.sprite.Group() #group of bullets to get updated
         self.aliens  = pygame.sprite.Group()
@@ -29,8 +30,23 @@ class AlienInvasion:
         #this function basically creates an alien and adds It to the sprite group
     def _create_fleet(self):
         alien = Alien(self)
-        self.aliens.add(alien)#add the created alien to sprite group
-    
+        alien_width = alien.rect.width #width of the alien?????
+        available_space_x = self.settings.screen_width - (alien_width*2) # x2 because between each alien and another, there is an equal space for an alien
+        number_of_aliens = available_space_x //(alien_width*2)  #number of alien that can fit in screen 
+
+        for alien_number in range(number_of_aliens+1): #iterate over number of aliens
+            alien = Alien(self)
+
+            alien.x = alien_width + 2 * alien_width * alien_number #coordinates of the queue ship
+            alien.rect.x = alien.x # assiging of the calculations to the coordinates
+
+            self.aliens.add(alien)#add the created alien to sprite group
+
+
+
+        
+        
+ 
     
     
     

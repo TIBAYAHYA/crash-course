@@ -30,9 +30,16 @@ class AlienInvasion:
         #this function basically creates an alien and adds It to the sprite group
     def _create_fleet(self):
         alien = Alien(self)
-        self.alien_width = alien.rect.width #width of the alien?????
-        available_space_x = self.settings.screen_width - (self.alien_width*2) # x2 because between each alien and another, there is an equal space for an alien
-        number_of_aliens = available_space_x //(self.alien_width*2)  #number of alien that can fit in screen 
+        alien_width,alien_height = alien.rect.size #width And height
+        available_space_x = self.settings.screen_width - (alien_width*2) # x2 because between each alien and another, there is an equal space for an alien
+        number_of_aliens = available_space_x //(alien_width*2)  #number of alien that can fit in screen 
+        
+        
+        
+        ship_height = self.ship.rect.height #height of the ship
+
+        available_space_y = self.settings.screen_height -(3*alien_height)-ship_height #ships the screen can fit vertically
+        number_rows = available_space_y //(2*alien_height)
 
         for alien_number in range(number_of_aliens): #iterate over number of aliens
             self._create_alien(alien_number=alien_number)
@@ -40,12 +47,14 @@ class AlienInvasion:
 
     def _create_alien(self,alien_number):
             alien = Alien(self)
-            
+            alien_width,alien_height = alien.rect.size #width And height
 
-            alien.x = self.alien_width + 2 * self.alien_width * alien_number #coordinates of the queue ship
+            alien.x = alien_width + 2 * alien_width * alien_number #coordinates of the queue ship
             alien.rect.x = alien.x # assiging of the calculations to the coordinates
 
             self.aliens.add(alien)#add the created alien to sprite group       
+
+
 
 
 

@@ -10,7 +10,7 @@ class Settings:
         
         #ship related attributes
         self.ship_image = r"/home/yahya/Desktop/programming/some images/space-ship.png"
-        self.ship_speed = 1
+        self.ship_speed = 5
 
 
 

@@ -1,0 +1,2 @@
+basically same thing as the mid version of alien_invasion,exept we make a fleet of stars appear on screen, as well as we add a little bit of randomness in tersm of which stars appear and which doesnt, pretty cool!!!
+comments may be kept minimal due to similars already existing on previous project, similar context

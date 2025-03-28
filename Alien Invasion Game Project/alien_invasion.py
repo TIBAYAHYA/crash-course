@@ -19,12 +19,13 @@ class AlienInvasion:
 
         self.bullets = pygame.sprite.Group() #group of bullets to get updated
         self.aliens  = pygame.sprite.Group()
+        self.ship = Ship(self)
         self._create_fleet()
 
         pygame.display.set_caption("Alien Invasion")
 #(255,255,255) equals to the colors (reg,green,blue)
         self.bg_colors = self.settings.bg_color # setting a color object, later to be used as the background color of our game
-        self.ship = Ship(self) # we set a Ship class variable, with It having acess
+         # we set a Ship class variable, with It having acess
         # Ship(self) so the target class can access our function(as well as not crash out)
     
         #this function basically creates an alien and adds It to the sprite group
@@ -42,16 +43,18 @@ class AlienInvasion:
         number_rows = available_space_y //(2*alien_height)
 
         for alien_number in range(number_of_aliens): #iterate over number of aliens
-            self._create_alien(alien_number=alien_number)
+            for row_number in range(number_rows):
+                self._create_alien(alien_number=alien_number,row_number=row_number)
 
 
-    def _create_alien(self,alien_number):
+    def _create_alien(self,alien_number,row_number):
             alien = Alien(self)
             alien_width,alien_height = alien.rect.size #width And height
-
+            
             alien.x = alien_width + 2 * alien_width * alien_number #coordinates of the queue ship
             alien.rect.x = alien.x # assiging of the calculations to the coordinates
 
+            alien.rect.y = alien.rect.height +(2 *alien.rect.height *row_number)
             self.aliens.add(alien)#add the created alien to sprite group       
 
 

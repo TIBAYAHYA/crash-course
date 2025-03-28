@@ -15,7 +15,7 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode((0,0),pygame.FULLSCREEN) # this variable contains the screen object, we also set the initial screen resolution
         self.settings.screen_width  = self.screen.get_rect().width  #assign settings class width to full screen's
         self.settings.screen_height = self.screen.get_rect().height #assign settings class height to full screen's
-        
+        self.alien_speed = self.settings.alien_speed
 
         self.bullets = pygame.sprite.Group() #group of bullets to get updated
         self.aliens  = pygame.sprite.Group()
@@ -80,9 +80,13 @@ class AlienInvasion:
             self._update_bullets() # this function updates the bullets
             
             #getting rid of bullets outside the screen
-
+            
+            self._update_aliens()
 
             self._upldate_screen()
+
+
+            
     
     
     def _check_events(self):
@@ -119,16 +123,35 @@ class AlienInvasion:
 
 
 
+
+
+
     def _check_keyup_event(self,event):
         if event.key == pygame.K_RIGHT: # the key up being right arrow
                 self.ship.moving_right = False
         elif event.key == pygame.K_LEFT: # the key up being left arrow
                 self.ship.moving_left = False 
     
+
+
+
+
+
+
+
+
+
+
     def _fire_bullet(self):
         if len(self.bullets) < self.settings.bulelts_limit: #if the number of bullets is less than the limit of bullets
             new_bullet = Bullets(self) 
             self.bullets.add(new_bullet) #add bullet to
+
+
+
+
+
+
 
 
     def _update_bullets(self):
@@ -137,6 +160,15 @@ class AlienInvasion:
             for bullet in self.bullets.copy():
                 if bullet.bullet_rect.bottom <= 0:
                     self.bullets.remove(bullet) 
+
+
+
+
+    def _update_aliens(self):
+        self.aliens.update()
+
+
+
 
 
     def _upldate_screen(self):

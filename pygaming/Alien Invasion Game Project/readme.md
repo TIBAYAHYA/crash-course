@@ -22,3 +22,4 @@ few months into the book, the author seems to make alot of efficiency mistakes o
 FINAL UPDATE:
 dumped the whole pygame thing, because holy shit this thing is so boring and exhausting, the author instructions being bastardly inefficient,uncalled for, weirdly confusing, I honestly would have been better just building this whole thing faster bymyself with some copilot assistance.
 thats It for the alien invasion game!
+already got what we need from this chapter in terms of classes learning/practice
